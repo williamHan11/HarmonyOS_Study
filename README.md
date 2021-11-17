@@ -17,3 +17,11 @@
 
 4. 使用Hiburn进行烧录时，点击Connect提示连接超时？
     - 在点击connect后需要按下开发板上的RST按键便可完成烧录
+
+# 2. 常用Linux指令
+
+```
+ssh harmonyos@<虚拟机IP地址> //在Window下访问Linux
+
+sudo docker start ohos -i //启动docker（进行源码编译前的步骤）
+```
