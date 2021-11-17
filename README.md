@@ -13,7 +13,8 @@
     - 将upload_speed配置为115200即可解决
 
 3. 接第2个问题，在可以进行烧录的情况下，只能烧录两个文件，进行第三个文件Hi3861_boot_signed_B.bin烧录时报错：Send head frame failed。
-    - 该问题等待华为云论坛解决
+    - 该问题目前属于已知BUG，待解决
+    - https://developer.huawei.com/consumer/cn/forum/topic/0204725298681650549?fid=0101587865002800104
 
 4. 使用Hiburn进行烧录时，点击Connect提示连接超时？
     - 在点击connect后需要按下开发板上的RST按键便可完成烧录
