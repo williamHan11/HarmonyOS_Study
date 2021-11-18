@@ -28,4 +28,4 @@ sudo docker start ohos -i //启动docker（进行源码编译前的步骤）
 ```
 
 # 3. 内核代码理解相关知识
-1. void rtosv2_printer_main(void *arg)中：其中void* arg表示可以传入任意类型的指针，这样的好处是可以传入任意的参数，如结构体指针，对象的指针等。
+1. void rtosv2_printer_main(void \*arg)中：其中void* arg表示可以传入任意类型的指针，这样的好处是可以传入任意的参数，如结构体指针，对象的指针等。
