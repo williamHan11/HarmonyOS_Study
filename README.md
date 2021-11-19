@@ -19,6 +19,11 @@
 4. 使用Hiburn进行烧录时，点击Connect提示连接超时？
     - 在点击connect后需要按下开发板上的RST按键便可完成烧录
 
+5. 在Ubuntu系统下搭建鸿蒙编译环境后，使用hb build进行编译时，提示permissionError：[Errno 13]，如何解决该问题？
+    - 出现该问题的原因可能是在升级pip时提示的警告：
+    - Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead.
+    - 所以，解决方法有两个：一个是直接使用华为云提供的docker环境进行编译，另一个是使用非root权限进行编译。
+
 # 2. 常用Linux指令
 
 ```
