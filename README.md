@@ -34,3 +34,20 @@ sudo docker start ohos -i //启动docker（进行源码编译前的步骤）
 
 # 3. 内核代码理解相关知识
 1. void rtosv2_printer_main(void \*arg)中：其中void* arg表示可以传入任意类型的指针，这样的好处是可以传入任意的参数，如结构体指针，对象的指针等。
+
+# 4. 子系统的理解
+鸿蒙系统包含了子系统ABCDEF......每个子系统又分别包含了独立的组件如Aa/Ab/Ac、Ba/Bb/Bc/Bd等等，比如内核子系统kernel，包含了互相独立的LiteOS_M、LiteOS_A、Linux(目前是这三个)。
+
+具体的芯片/开发平台，根据需要进行裁剪，比如Hi3861开发平台，选Aa组件不选Ab组件，完全不要B子系统(如多媒体子系统)，内核选LiteOS_M(硬件资源受限，跑不了LiteOS_A、Linux内核)。
+
+而Hi3516开发平台，多媒体子系统、AI子系统等等，都会选上，内核也可以选LiteOS_A或Linux。
+
+//build/lite/components/ 目录下，是鸿蒙系统能够提供的所有子系统列表，每一个json文件就是一个子系统，文件内又列出了本子系统提供的所有独立组件。
+
+//vendor/hisilicon/ 目录下，是具体开发平台的配置需求文件，比如：
+
+//vendor/hisilicon/hispark_pegasus/config.json 描述了Hi861平台跑起来所需要的子系统+组件列表，
+
+//vendor/hisilicon/hispark_taurus/config.json 描述了Hi516平台跑起来所需要的子系统+组件列表.
+
+编译代码的时候，会根据这些配置进行代码模块的裁剪，选择性地编译需要的模块。
